@@ -42,10 +42,9 @@ Cypress.Commands.add('shibbolethLogin', (overrides = {}) => {
     // allow us to override defaults with passed in overrides
     _.extend(options, overrides)
 
-    cy.visit(options.idpUrl + '/idp/profile/SAML2/Unsolicited/SSO?providerId=' + encodeURI(options.providerId))
-    cy.get('input[name="j_username"]').type(options.username)
-    cy.get('input[name="j_password"]').type(options.password)
-    cy.get('form button').click()
-    cy.getCookie('shib_idp_session').should('exist')
-    cy.log(cy.url())
+    return cy.visit(options.idpUrl + '/idp/profile/SAML2/Unsolicited/SSO?providerId=' + encodeURI(options.providerId))
+      .get('input[name="j_username"]').type(options.username)
+      .get('input[name="j_password"]').type(options.password)
+      .get('form button').click()
+      .getCookie('shib_idp_session').should('exist')
 })
