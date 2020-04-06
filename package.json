@@ -10,6 +10,6 @@
   "author": "Ulrich Leodolter <ulrich.leodolter@obvsg.at> (https://www.obvsg.at/)",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^3.4.1"
+    "cypress": "^4.3.0"
   }
 }
